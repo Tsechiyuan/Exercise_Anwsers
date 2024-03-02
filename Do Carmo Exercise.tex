@@ -1,0 +1,136 @@
+\documentclass[UTF8]{ctexart}[a4paper,10pt]
+\usepackage[thmmarks]{ntheorem}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb} 
+\usepackage{thmtools}
+\usepackage[hmargin=2.5cm,vmargin=2.5cm]{geometry}
+\usepackage{tikz-cd,tikz}
+\usepackage{graphicx,float}
+\usepackage{fancyhdr}
+\usepackage{fourier-orns}
+\usepackage{quiver}
+\usepackage{mathrsfs}
+
+%声明环境
+\theorembodyfont{\rmfamily}
+\newtheorem{example}{例}[section]              
+\newtheorem{algorithm}{算法}[subsection]
+\newtheorem{theorem}{定理}[section]            
+\newtheorem{definition}{定义}[section]
+\newtheorem{axiom}{公理}[section]
+\newtheorem{property}{性质}[section]
+\newtheorem{proposition}{命题}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+{
+    \theoremheaderfont{\sffamily}
+    \newtheorem*{remark}{注解} 
+}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}[section]
+\newtheorem{assumption}{假设}
+{
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremsymbol{\mbox{$\Box$}}
+\newtheorem{proof}{证明}
+}
+%定义命令
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\S{\mathbb{S}}
+\def\D{\mathbb{D}}
+\def\H{\mathbb{H}}
+\def\cC{\mathcal{C}}
+
+%页眉设计
+\renewcommand 
+\headrule{
+\hrulefill
+\raisebox{-2.1pt}
+{\quad{\FourierOrns M T S N}\quad}
+\hrulefill}
+\pagestyle{fancy}
+%极限余极限
+\makeatletter
+\newcommand{\Colim@}[2]{
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\Colim}{%
+  \mathop{\mathpalette\Colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+\makeatletter
+\newcommand{\Lim@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\Lim}{%
+  \mathop{\mathpalette\Lim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+
+\makeatletter
+\newcommand{\colim@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font oli~$\hfil \cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\colim}{%
+  \mathop{\mathrm{c}\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}\mathrm{\!\!m}}\nmlimits@
+}
+\makeatother
+
+\makeatletter
+\newcommand{\cone@}[1]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font cone$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\cone}{%
+  \mathop{\mathpalette\cone@{\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+%超链接红色
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+
+\usepackage{enumerate}
+
+
+\title{Do Carmo黎曼几何习题}
+\author{颜成子游}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{第一章}
+\section{第二章}
+1.设$c(t)$的切向量为$\dot{c}(t)$。根据平行移动可知:
+\begin{align}
+  \nabla_{\dot{c}(t)} P_{c,t_0,t}=0
+\end{align}
+等距性:
+\begin{align}
+  s(t)=\|P_{c,t_0,t}\|^2, \dot{s}(t)=0 \Rightarrow s(t)\equiv s(t_0)
+\end{align}
+保定向:
+设$e_i$是$t_0$处的一组单位正交定向基,则$P_{c,t_0,t}(e_i)$是一组$t$处的单位正交基。这两组基诱导的定向必须连续变化，于是$P$是保定向的映射。
+
+2.
+\end{document}
+
+
+
