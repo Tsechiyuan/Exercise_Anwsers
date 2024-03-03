@@ -1,4 +1,4 @@
-\documentclass[UTF8]{ctexart}[a4paper,10pt]
+\documentclass[UTF8]{ctexart}[a4paper,12pt]
 \usepackage[thmmarks]{ntheorem}
 \usepackage{amsmath}
 \usepackage{amsfonts,amssymb} 
@@ -135,7 +135,35 @@
   \frac{d}{dt}P^{-1}_{c,t_0,t}(Y(c(t)))|_{t=t_0}=\lim_{t \to t_0}\frac{Y(c(t))-P_{c,t_0,t}(Y(p))}{t-t_0}=\nabla_X (Y-P_{c,t_0,t}Y)(p)=\nabla_X Y(p)
 \end{align}
 
-3.
+3.$\nabla$是联络是平凡的。我们需要说明这是黎曼联络。
+
+根据拉回，$M$的度量是$f^*g$.设$f_*X=\bar{X}$。（其他向量场也同理）。从而:
+\begin{align}
+  X\langle Y,Z\rangle=X\langle f_* Y,f_*Z\rangle=f_*(X) \langle f_* Y,f_*Z\rangle=\langle \bar{\nabla}_{\bar{X}}\bar{Y},\bar{Z}\rangle+\langle \bar{Y},\bar{\nabla}_{\bar{X}}\bar{Z}\rangle=\langle \nabla_X Y,Z\rangle+\langle Y,\nabla_X Z\rangle
+\end{align}
+
+4.(a)借鉴上题的思路。设$\nabla$是$M$上的联络,则$\nabla_V V=0$.于是$\R^3$上的平凡联络$D$满足:
+\begin{align}
+  D_V V \perp V
+\end{align}
+若上述公式成立,则$\nabla_V V=0$。所以$V$沿着曲线平行移动。
+
+(b)
+
+5.欧氏空间上平行移动与点无关。因为欧氏空间的联络是平凡的，从而对单位向量$e_i$求联络总是$0$.
+
+若不是欧氏空间，则可以举球面$S^2$的例子。从北极点平行移动到南极点，走不同经线得到的结果不同。
+
+6.
+
+7.
+
+8.(a)略。带入公式:
+\begin{align}
+  \Gamma_{ij}^k=\frac{1}{2}\sum_m \{\frac{\partial}{\partial x_i}g_{jm}+\frac{\partial}{\partial x_j}g_{im}-\frac{\partial}{\partial x_m}g_{ij}\}g^{km}
+\end{align}即可。
+
+(b)使用Christoffel记号计算平行移动的方程即可。
 \end{document}
 
 
