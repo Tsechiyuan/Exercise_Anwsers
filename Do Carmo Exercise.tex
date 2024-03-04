@@ -164,6 +164,26 @@
 \end{align}即可。
 
 (b)使用Christoffel记号计算平行移动的方程即可。
+
+9.(a)仿照Levi-Civita联络的证明即可。
+
+因为联络和伪黎曼度量是相容的，且联络是无挠的，我们仍然有:
+\begin{align}
+  X\langle Y,Z\rangle+Y\langle Z,X\rangle-Z\langle X,Y\rangle=\langle [X,Z],Y \rangle+\langle [Y,Z],X \rangle+\langle [X,Y],Z \rangle+2\langle Z,\nabla_Y X \rangle
+\end{align}
+因为$\langle\cdot,\cdot \rangle$仍然是非退化的,所以通过指定$\langle Z,\nabla_Y X\rangle$的值，我们仍然可以给出$\nabla$的唯一性和存在性。
+
+(b)设洛伦兹度量下的Levi-Civita联络是$\nabla$.平凡度量下的Levi-Civita联络是$D$.我们说明若$\nabla_X Y=0$与$D_X Y=0$等价。
+
+对于$\nabla$而言,带入式(7),不难发现$\nabla_{\frac{\partial}{\partial x_j}}\frac{\partial}{\partial x_i}=0,0\leq i,j \leq n$.所以$\nabla_{X^i \frac{\partial}{\partial x_i}}(Y^j \frac{\partial}{\partial x_j})=0$等价于：
+\begin{align}
+  X^i (\nabla_{\frac{\partial}{\partial x_i}}Y^j)\frac{\partial}{\partial x_j}=0
+\end{align}
+由于任何联络作用在函数上总是求李导数,所以上述方程可以直接替换为:
+\begin{align}
+  X^i (D_{\frac{\partial}{\partial x_i}}Y^j)\frac{\partial}{\partial x_j}=0
+\end{align}
+于是$D_X Y=0$与$\nabla_X Y=0$等价。
 \end{document}
 
 
