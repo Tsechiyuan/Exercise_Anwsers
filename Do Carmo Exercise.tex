@@ -1,6 +1,7 @@
 \documentclass[UTF8]{ctexart}[a4paper,12pt]
 \usepackage[thmmarks]{ntheorem}
 \usepackage{amsmath}
+
 \usepackage{amsfonts,amssymb} 
 \usepackage{thmtools}
 \usepackage[hmargin=2.5cm,vmargin=2.5cm]{geometry}
@@ -44,8 +45,8 @@
 \def\C{\mathbb{C}}
 \def\S{\mathbb{S}}
 \def\D{\mathbb{D}}
-\def\H{\mathbb{H}}
 \def\cC{\mathcal{C}}
+\newcommand{\pa}[1]{\dfrac{\partial}{\partial #1}}
 
 %页眉设计
 \renewcommand 
@@ -109,6 +110,7 @@
 \usepackage[colorlinks,linkcolor=red]{hyperref}
 
 \usepackage{enumerate}
+\numberwithin{equation}{section}
 
 
 \title{Do Carmo黎曼几何习题}
@@ -184,6 +186,40 @@
   X^i (D_{\frac{\partial}{\partial x_i}}Y^j)\frac{\partial}{\partial x_j}=0
 \end{align}
 于是$D_X Y=0$与$\nabla_X Y=0$等价。
+\newpage
+\section{第三章}
+1.(Geodesic of a surface of revolution)
+
+(a)计算:
+\begin{align}
+  \langle \pa{v},\pa{u}\rangle=0, \langle \pa{v},\pa{v}\rangle=f'^2+g'^2,\langle \pa{u},\pa{u}\rangle=f^2
+\end{align}
+
+(b)设测地线$\gamma(t)$为$(u(t),v(t))$.则切向量为:
+\begin{align}
+  \dot{\gamma}(t)=u'(t)\pa{u}+v'(t)\pa{v}
+\end{align}
+显然需要先计算联络系数。我们有:
+\begin{align}
+  &\Gamma_{11}^1=0,\Gamma_{12}^1=\Gamma_{21}^1=\frac{f'}{f},\Gamma_{22}^1=0\\
+  &\Gamma_{11}^2=-\frac{ff'}{f'^2+g'^2},\Gamma_{12}^2=\Gamma_{21}^2=0,\Gamma_{22}^2=\frac{f'f''+g'g''}{f'^2+g'^2}
+\end{align}
+带入测地线方程:
+\begin{align}
+  &\frac{d^2u}{dt^2}+2\frac{f'}{f}\frac{du}{dt}\frac{dv}{dt}=0\\
+  &\frac{d^2v}{dt^2}-\frac{ff'}{(f')^2+(g')^2}(\frac{du}{dt})^2+\frac{f'f''+g'g''}{f'^2+g'^2}(\frac{dv}{dt})^2=0
+\end{align}
+
+(c)$|\gamma'(t)|^2=u'^2f^2+v'^2(f'^2+g'^2)$.对其求导:
+\begin{align}
+  \frac{d}{dt}|\gamma'(t)|^2&=2u'u''f^2+2u'^2ff'v'+2v''v'(f'^2+g'^2)+2v'^3(f''f'+g''g')\\&=2u'u''f^2+2u'^2ff'v'+2v'[ff'u'^2-(f'f''+g'g'')v'^2]+2v'^3(f''f'+g''g')\\&=2fu'(u''f+2u'v'f')=0
+\end{align}
+略去第二个有向角的计算。记录为:
+\begin{align}
+  r\cos \beta=\rm{const}
+\end{align}
+
+(d)我认为是一个错题。
 \end{document}
 
 
