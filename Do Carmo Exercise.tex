@@ -220,6 +220,55 @@
 \end{align}
 
 (d)我认为是一个错题。
+
+2.(定义切丛上的Riemann度量)
+
+(a)对于给出的度量表达式，良定义意为选择的曲线$p,v,q,w$并不影响计算的结果.其次，这是一个对称的正定二次型。
+
+对称的正定二次型是平凡的。因而我们只需要考虑良定义问题。观察表达式：
+\begin{align}
+  \langle V,W\rangle_{p,v}=\langle d\pi(V),d\pi(W)\rangle_p+\langle \frac{Dv}{dt}(0),\frac{Dw}{ds}(0)\rangle_p
+\end{align}
+
+显然第一项是自然良定的。对于第二项,注意到:
+\begin{align}
+  \frac{Dv}{dt}(0)=\nabla_{d\pi(V)} v(t),\frac{Dw}{ds}(0)=\nabla_{d\pi(W)} w(s)
+\end{align}
+我们需要说明$\nabla_{d\pi(V)} v(t)$是不依赖$v(t)$选取的向量。不妨根据联络的定义展开:
+\begin{align}
+  \nabla_{d\pi(V)} v(t)=((d\pi(V))^j\frac{\partial v^i}{\partial x^j}+\Gamma_{kj}^i(d\pi(V))^kY^j)\pa{x^i},\frac{\partial v^i}{\partial x^j}=V^{n+i}
+\end{align}
+于是该向量被$v$,$V$所表达，因而是良定义的。
+
+(b)纤维上$d\pi(W)=0$。因此$V$是水平向量等价于:
+\begin{align}
+  \langle \frac{Dv}{dt}(0),\frac{Dw}{ds}(0)\rangle\equiv0,\forall w(t)
+\end{align}
+因此$\frac{Dv}{dt}=\nabla_{\dot{p}(t)}v(t)=0$恒成立,即$v(t)$沿着$p(t)$平行移动。
+
+(c)设$v(t)$是测地向量场($M$上的)。这也可以写作$v:M \to TM$表。我们断言$v_*v(t)$是水平向量场。不妨设$v(t)$对应的测地线是$p(t)$。
+
+于是在$(p(t),v(t))$处,$\nabla_{\dot{p(t)}}v(t)=0$恒成立，从而$v_*v(t)$是水平向量场。
+
+(d)设$\bar{\alpha}(t)=(\alpha(t),v(t))$,其中$v(t)$是沿着$\alpha(t)$的向量场。则:
+\begin{align}
+  \|\dot{\bar{\alpha}}(t)\|^2=\|\dot{\alpha}(t)\|^2+\|\frac{Dv}{dt}\|^2 \geq \|\dot{\alpha}(t)\|^2
+\end{align}
+于是我们有:
+\begin{align}
+  l(\bar{\alpha})\geq l(\alpha)
+\end{align}
+若$\alpha(t)$是测地线且$v(t)$是$\alpha(t)$的切向量,我们有:
+\begin{align}
+  \|\dot{\bar{\alpha}}(t)\|^2=\|\dot{\alpha}(t)\|^2+\|\frac{Dv}{dt}\|^2 = \|\dot{\alpha}(t)\|^2+0= \|\dot{\alpha}(t)\|^2
+\end{align}
+于是$l(\alpha)=l(\bar{\alpha})$。
+
+现在考虑一个能使得测地线是最短线的凸邻域。于是$\bar{\alpha}$成为了所有$\bar{\gamma}(t)$中的最短线,因而是测地线。
+
+(e)因为$\dfrac{Dw}{dt}=0$($W$水平),所以第一个等式成立。
+
+如果$W$垂直,则$d\pi(W)=0$且$\dfrac{Dw}{dt}$退化为$W$.所以第二个等式成立。
 \end{document}
 
 
