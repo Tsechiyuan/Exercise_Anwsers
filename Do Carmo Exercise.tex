@@ -468,6 +468,49 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 再根据$p$的任意性,可知上述方程成立哦。
 
 12.(E.Hopf定理)
+
+对$\Delta f \nu$给出的$n$形式积分。设$X=\mathrm{grad}f$（因为是紧流形）。
+\begin{align}
+  \int_M \Delta(f)\nu=\int_M \mathrm{div}X \nu=\int_M d(i(X)\nu)=\int_{\partial  M}i(X)\nu=0
+\end{align}
+因为$\nabla f\geq 0$,所以上式给出$\nabla f=0$.
+
+接着对$\nabla(f^2/2)$积分:
+\begin{align}
+  \int_M \nabla(f^2/2)\nu=\int_M 2\|\mathrm{grad}f\|^2\nu
+\end{align}
+对上式使用Stokes公式，可以得到$\mathrm{grad}f=0$.
+
+所以$f$是常数。
+
+13.
+\begin{align}
+  \mathrm{div}X\nu=d(i_X \nu)=dg \wedge dx_2 \wedge \dots dx_n=\frac{1}{g}\frac{\partial g}{\partial t}\nu
+\end{align}
+
+14.(Liouville定理)
+
+选取$p \in M$。我们只需要说明任意$p$以及经过$p$的测地线$\gamma$都有$\mathrm{div}G(p,\dot{\gamma}(p))=0$.
+
+为此,选取$p$周围的测地坐标系。给定$T_pM$处的单位正交基$e_1,\dots,e_n$,用$q=\exp_p(\sum_i u_ie_i)$中的$(u_1,\dots,u_n)$表示$q$的坐标。
+
+在这样的坐标下,我们有:
+\begin{align}
+  \Gamma_{ij}^k(p)=0
+\end{align}
+这是因为经过$p$的测地线由线性方程给出。
+
+现在设$(u_i)$是$p\in U \subset M$周围的正规坐标系。设$(u_i,v_j)$是$TM$上的坐标。我们断言$TM$上的在$(q,v)$处的体积形式同构于是$U\times U$在$(q,q)$上的体积形式。
+
+由于$G$是测地的,从而$G$是水平的向量场。从而我们可以在乘积度量下计算$\mathrm{div}G$:
+\begin{align}
+  G(u_i)=v_i G(v_j)=-\sum_{ik}\Gamma_{ik}^j v_iv_k
+\end{align}
+
+最终我们有:
+\begin{align}
+  \mathrm{div}G=\sum_i \frac{\partial v_i}{\partial u_i}-\sum_j \pa{v_j}(\sum_{ik}\Gamma_{ik}^j v_iv_k)=0
+\end{align}
 \section{第四章}
 \end{document}
 
