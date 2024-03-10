@@ -498,18 +498,20 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 \begin{align}
   \Gamma_{ij}^k(p)=0
 \end{align}
-这是因为经过$p$的测地线由线性方程给出。
+这是因为经过$p$的测地线由线性方程给出。（或者观察测地线微分方程）。
 
 现在设$(u_i)$是$p\in U \subset M$周围的正规坐标系。设$(u_i,v_j)$是$TM$上的坐标。我们断言$TM$上的在$(q,v)$处的体积形式同构于是$U\times U$在$(q,q)$上的体积形式。
 
-由于$G$是测地的,从而$G$是水平的向量场。从而我们可以在乘积度量下计算$\mathrm{div}G$:
+实际上根据第二题e问的垂直水平向量可知，选取$TM$上垂直的$n$个正交向量即可。
+
+由于$G$是测地的,从而$G$是水平的向量场。而散度可以只依照体积形式来计算，从而我们可以在乘积度量下计算$\mathrm{div}G$。让$G$作用在函数$u^i,v^i$上:
 \begin{align}
-  G(u_i)=v_i G(v_j)=-\sum_{ik}\Gamma_{ik}^j v_iv_k
+  G(u_i)=v_i G(v_j)=-\sum_{ik}\Gamma_{ik}^j v_iv_k \quad \text{第二个等式来自于} G \text{是测地线}
 \end{align}
 
 最终我们有:
 \begin{align}
-  \mathrm{div}G=\sum_i \frac{\partial v_i}{\partial u_i}-\sum_j \pa{v_j}(\sum_{ik}\Gamma_{ik}^j v_iv_k)=0
+  \mathrm{div}G=\sum_i \frac{\partial v_i}{\partial u_i}-\sum_j \pa{v_j}(\sum_{ik}\Gamma_{ik}^j v_iv_k)=0 \text{$\quad u_i,v_i$是$TM$在$(p,p)$处的单位正交基.Christoffel记号在$(p,p)$处退化。}
 \end{align}
 \section{第四章}
 \end{document}
