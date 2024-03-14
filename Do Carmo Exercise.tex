@@ -513,7 +513,49 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 \begin{align}
   \mathrm{div}G=\sum_i \frac{\partial v_i}{\partial u_i}-\sum_j \pa{v_j}(\sum_{ik}\Gamma_{ik}^j v_iv_k)=0 \text{$\quad u_i,v_i$是$TM$在$(p,p)$处的单位正交基.Christoffel记号在$(p,p)$处退化。}
 \end{align}
+\newpage
 \section{第四章}
+1.(双不变度量的李群)
+
+(1)设$X=W+Z$,$Y=W-Z$。则:
+\begin{align}
+  \nabla_X Y&=\nabla_{W+Z}(W-Z)=\nabla_W(-Z)+\nabla_Z W \\
+  \nabla_Y Z&=\nabla_{W-Z}(W+Z)=\nabla_W Z+\nabla_{-Z}W
+\end{align}
+因此$\nabla_XY=\nabla_YX$。根据无挠性:
+\begin{align}
+  \nabla_XY =\frac{1}{2}[X,Y]
+\end{align}
+
+(2)\begin{align}
+  R(X,Y)Z=\frac{1}{4}([X,[Y,Z]]-[Y,[X,Z]])-\frac{1}{2}([[X,Y],Z])=\frac{1}{4}[[X,Y],Z]
+\end{align}
+
+(c)\begin{align}
+  K(\sigma)=\frac{\langle R(X,Y)X,Y\rangle}{|X|^2|Y|^2}=\frac{1}{4}\frac{\langle [[X,Y],X],Y\rangle}{|X|^2|Y|^2}=\frac{1}{4}\|[X,Y]\|^2
+\end{align}
+
+2.$X$是Killing场。
+
+(a)对$f$求导,作用$Z$向量场。
+\begin{align}
+  2\langle \nabla_Z X,X\rangle(p)=Z\langle X,X\rangle(p)=(df,Z)(p)=0
+\end{align}
+
+(b)
+设$S$为:
+\begin{align}
+  S=\frac{1}{2}ZZ\langle X,X\rangle+\langle R(X,Z)X,Z\rangle
+\end{align}
+根据Killing方程,我们有:
+\begin{align}
+  \langle \nabla_X X,Z\rangle+\langle \nabla_Z X,X\rangle=0
+\end{align}
+从而可以把$S$写为:
+\begin{align}
+  S&=Z\langle \nabla_Z X,X\rangle-\langle \nabla_X \nabla_Z X,Z\rangle+\langle \nabla_Z \nabla_X X,Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle-\langle \nabla_X \nabla_Z X,Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle-X\langle \nabla_Z X,Z\rangle+\langle \nabla_Z X,\nabla_X Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_X Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_Z X\rangle+\langle \nabla_Z X,[X,Z]\rangle-\langle \nabla_Z X,[X,Z]\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_Z X\rangle
+\end{align}
+带入$p$且根据$\nabla_X X(p)=0$可得结果。
 \end{document}
 
 
