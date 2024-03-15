@@ -18,7 +18,7 @@
 \newtheorem{question}{题}[section]
 \newtheorem{theorem}{定理}[section]            
 \newtheorem{lemma}[theorem]{引理}
-
+\newtheorem{proposition}[theorem]{命题}
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\normalfont}
@@ -36,8 +36,10 @@
 \def\S{\mathbb{S}}
 \def\D{\mathbb{D}}
 \def\cC{\mathcal{C}}
-\newcommand{\pa}[1]{\dfrac{\partial}{\partial #1}}
-
+\newcommand{\pa}[3][]{
+	\frac{\partial^{#1} #2}{\partial {#3}^{#1}}
+	}
+\newcommand{\dd}{\mathrm{d}}
 %页眉设计
 \renewcommand 
 \headrule{
@@ -187,7 +189,7 @@
 
 (b)设测地线$\gamma(t)$为$(u(t),v(t))$.则切向量为:
 \begin{align}
-  \dot{\gamma}(t)=u'(t)\pa{u}+v'(t)\pa{v}
+  \dot{\gamma}(t)=u'(t)\pa{}{u}+v'(t)\pa{}{v}
 \end{align}
 显然需要先计算联络系数。我们有:
 \begin{align}
@@ -338,7 +340,7 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 
 我们说明上述结果。只需要对$X(p)\neq 0$的地方说明。设$U$是$p$处的一个正规坐标系,$S$是$U$的子流形,满足与$X_p$正交。$\dim S=n-1$.设$(x_1,\dots,x_{n-1})$给出$S$在$p$的坐标,$(x_1,\dots,x_{n-1},t)$给出$U$处的坐标,$\pa{t}=X_p$.
 
-同时设$X_i=\pa{x_i}$.我们得到:
+同时设$X_i=\pa{}{x_i}$.我们得到:
 \begin{align}
   \langle \nabla_{X_j}X,X_j\rangle+\langle \nabla_{X_i}X,X_j\rangle=X\langle X_i,X_j\rangle-\langle[X,X_i],X_j\rangle-\langle [X,X_j],X_i\rangle=\pa{t}\langle X_i,X_j\rangle
 \end{align}
@@ -556,6 +558,66 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
   S&=Z\langle \nabla_Z X,X\rangle-\langle \nabla_X \nabla_Z X,Z\rangle+\langle \nabla_Z \nabla_X X,Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle-\langle \nabla_X \nabla_Z X,Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle-X\langle \nabla_Z X,Z\rangle+\langle \nabla_Z X,\nabla_X Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_X Z\rangle+\langle \nabla_{[X,Z]}X,Z\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_Z X\rangle+\langle \nabla_Z X,[X,Z]\rangle-\langle \nabla_Z X,[X,Z]\rangle\\&=-\langle \nabla_X X,\nabla_Z Z\rangle+\langle \nabla_Z X,\nabla_Z X\rangle
 \end{align}
 带入$p$且根据$\nabla_X X(p)=0$可得结果。
+
+3.命题:设$M$是紧致偶数维黎曼流形且截面曲率恒正。则$M$上的Killing场总有$0$点。
+
+解答：设$f:M  \to \R$是函数$f(q)=\langle X,X\rangle(q)$.因为$M$是紧流形,从而$f(q)$有最小值$p$.在该点处$df=0$。假设$X(p)\neq 0$.
+
+定义线性映射$A:T_p M \to T_pM$.其中$A(y)=\nabla_Y X(p)$,其中$Y$是$y$在该处的extension。显然$A(y)$与$Y$的选取无关。
+
+因为$X(p)\neq 0$,所以存在$E$作为$T_p M$的子空间正交于$X(p)$。把$A$限制在$E$上,我们断言这是$E$的一个线性变换(a)。设$\tilde{A}$是$E\times E \to \R$的双线性函数:$\tilde{A}(v,w)=\langle Av,w\rangle$.我们同时断言$\tilde{A}$非退化且反对称。(b)
+
+根据两个断言，$E$的维数必须是偶数。然而$M$的维数也是偶数,这产生了矛盾！因此$X(p)=0$.
+
+先证明断言(a)。首先说明$A(E)\subset E$.事实上,设$y \in E$,则$\langle \nabla_Y X,X\rangle(p)=\dfrac{1}{2}Y\langle X,X\rangle=0$.因此$A(y)\in E$.
+
+再证明断言(b)。选取$E$的基$\{e_2,\dots,e_n\}$.令$E_i$是$e_i$的一个延拓。于是$\langle A(e_i),e_j\rangle=\langle \nabla_{E_i}X,E_j\rangle(p)=-\langle \nabla_{E_j}X,E_i\rangle(p)$.最后一个等号来源于Killing方程。于是$\tilde{A}$是反对称的双线性函数。
+
+为了说明$\tilde{A}$非退化,假设$A(y)=0$且$y\neq 0$.从而:
+\begin{align}
+  0=\langle A(y),A(y)\rangle=\langle \nabla_Y X,\nabla_Y X\rangle=\frac{1}{2}y(Y\langle X,X\rangle)+\langle R(X,Y)X,Y\rangle
+\end{align}
+因为$p$处$f(p)$给出最小值,从而$y(Y(f))$在$p$处必须非负.而截面曲率大于$0$,因此等式右边大于$0$。这产生了矛盾！因而$y=0$,于是$A$是同构。
+
+4.第4题是一个非常好的结论。
+\begin{proposition}
+  设$M$是黎曼流形且满足性质:给定$p,q\in M$,从$p$到$q$的平行移动与连接$p,q$的道路的选取无关。则$M$是曲率算子是$0$,换句话说,$\forall X,Y,Z \in \Gamma(M),R(X,Y)Z=0$.
+\end{proposition}
+\begin{proof}
+  考虑参数化曲面$f:U\subset \R^2 \to M$:
+  \begin{align}
+    U=\{(s,t)\in \R^2;-\epsilon<t+1+\epsilon,-\epsilon<s<1+\epsilon,\epsilon>0\}
+  \end{align}
+  且$f(s,0)=f(0,0),\forall s$.设$V_0\in T_{f(0,0)}(M)$且定义沿着$f$的向量场$V$满足$V(s,0)$是沿着$s \mapsto f(s,0)$得到的向量,$V(s,t)$是$V(s,0)$沿着曲线$t\mapsto f(s,t)$平行移动得到的向量。从而:
+  \begin{align}
+    \frac{D}{\partial s}\frac{D}{\partial t}V=0=\frac{D}{\partial t}\frac{D}{\partial s}V+R(\pa{f}{t},\pa{f}{s})V
+  \end{align}
+  另一方面,因为$M$上的平行移动与选取的曲线无关,因此$V(s,1)$可以看作$V(s,0)$移动的结果,也可以看作$V(0,1)$沿着曲线$s \mapsto f(s,1)$移动的结果。所以:
+  \begin{align}
+    \frac{D}{\partial s}V(s,1)=0
+  \end{align}
+  因此:
+  \begin{align}
+    R_{f(0,1)}(\pa{f}{t}(0,1),\pa{f}{s}(0,1))V(0,1)=0
+  \end{align}
+
+  然而$f(0,1)$,$V_0$是我们随意指定的,$f$也是随意给出的,因而$R=0$恒成立。
+\end{proof}
+
+5.\begin{proposition}
+  设$\gamma:[0,l]\to M$是测地线且$X$是$M$上的向量场,满足$X(\gamma(0))=0$.则:
+  \begin{align}
+    \nabla_{\gamma'}(R(\gamma',X)\gamma')(0)=(R(\gamma',X')\gamma')(0)
+  \end{align}
+  其中$X'=\frac{DX}{dt}$.换句话说,求导穿进了曲率算子。
+\end{proposition}
+\begin{proof}
+  考虑(0,4)型的算子$R$。对于任意的向量场$Z$,在$t=0$时:
+  \begin{align}
+    (\nabla_{\gamma'}R)(\gamma',X,\gamma',Z)&=\frac{\dd}{\dd t}\langle R(\gamma',X)\gamma',Z\rangle-\langle R(\gamma',X')\gamma',Z\rangle-\langle R(\gamma',X)\gamma',Z'\rangle\\&=\langle \nabla_{\gamma'}(R(\gamma',X)\gamma'),Z\rangle-\langle R(\gamma',X')\gamma',Z\rangle
+  \end{align}
+  事实上,上式左边是$0$.因为$X(\gamma(0))=0$,从而(0,4)张量$\nabla_{\gamma'}R$在$t=0$时为$0$.
+\end{proof}
 \end{document}
 
 
