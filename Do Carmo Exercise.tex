@@ -13,20 +13,29 @@
 \usepackage{mathrsfs}
 
 %声明环境
-\theorembodyfont{\rmfamily}
-\newtheorem{example}{例}[section]              
-\newtheorem{question}{题}[section]
-\newtheorem{theorem}{定理}[section]            
+\newtheorem{example}{例}[section]
+\newtheorem{algorithm}{算法}[subsection]
+\newtheorem{theorem}{定理}[subsection]
+\newtheorem{definition}{定义}[section]
+\newtheorem{axiom}{公理}[section]
+\newtheorem{property}{性质}[section]
+\newtheorem{proposition}{命题}[section]
 \newtheorem{lemma}[theorem]{引理}
-\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+{
+    \theoremheaderfont{\sffamily}
+    \newtheorem*{remark}{注解}
+}
+\newtheorem{condition}{条件}
+\newtheorem{conclusion}{结论}[section]
+\newtheorem{assumption}{假设}
+{
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\normalfont}
 \theoremsymbol{\mbox{$\Box$}}
 \newtheorem{proof}{证明}
-\newtheorem{solution}{解}
-
-
+}
 %定义命令
 \def\N{\mathbb{N}}
 \def\Z{\mathbb{Z}}
@@ -40,6 +49,8 @@
 	\frac{\partial^{#1} #2}{\partial {#3}^{#1}}
 	}
 \newcommand{\dd}{\mathrm{d}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
 %页眉设计
 \renewcommand 
 \headrule{
@@ -618,6 +629,100 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
   \end{align}
   事实上,上式左边是$0$.因为$X(\gamma(0))=0$,从而(0,4)张量$\nabla_{\gamma'}R$在$t=0$时为$0$.
 \end{proof}
+
+\text{6.}(a)\begin{proposition}[局部对称空间]
+  设$M$是黎曼流形。称$M$是局部对称空间,若$\nabla R=0$.其中$R$是$M$的曲率张量。设$\gamma:[0,l]\to M$是$M$的测地线,且$X,Y,Z$是沿着$\gamma$平行移动的向量场。则$R(X,Y)Z$也是沿着$\gamma$平行移动的向量场。
+\end{proposition}
+\begin{proof}
+  \begin{align}
+    0=(\nabla_{\gamma'}R)(X,Y,Z,W)=\gamma'(R(X,Y,Z,W))-R(X,Y,Z,\nabla_{\gamma'}W)
+  \end{align}
+  于是:
+  \begin{align}
+    \gamma'\langle R(X,Y)Z,W\rangle=\langle R(X,Y)Z,\nabla_\gamma' W\rangle
+  \end{align}
+  根据联络适配度量性,可知:
+  \begin{align}
+    \langle \nabla_\gamma'R(X,Y)Z,W\rangle=0
+  \end{align}
+  总成立。
+\end{proof}
+
+(b)\begin{proposition}
+  若$M$是$2$维的局部对称空间,连通。则$M$有常截面曲率。
+\end{proposition}
+\begin{proof}
+  根据连通,我们只需要说明任何点$p \in M$都存在$p \in U$使得其上的截面曲率为常数。因为是2维的流形,所以实际上是$T_p M$的曲率。
+
+  考虑在上一章习题给出的正规坐标系。取$E_1,E_2$是对应的标架。则$E_i(\exp_p v)$是$E_i(p)$沿着曲线$t \mapsto \exp_p(tv)$平行移动到$\exp_p(v)$的向量。显然$E_1,E_2$总是标准正交基。
+
+  于是$K(\exp v)=R(E_1,E_2,E_1,E_2)$。根据上个命题的结果,该值沿着曲线$t \mapsto \exp_p(tv)$不变,因而在整个测地坐标系上$R$是恒定的。
+\end{proof}
+
+(c)\begin{proposition}
+  若$M$有常截面曲率,则$M$是局部的对称空间。
+\end{proposition}
+\begin{proof}
+  常曲率空间中可以计算:
+  \begin{align}
+    \langle R(X,Y)Z,W\rangle=K_0(\langle X,W\rangle\la Y,Z\ra-\la Y,W\ra \la X,Z\ra)
+  \end{align}
+  对其求$\nabla$可得结果。
+\end{proof}
+
+\textbf{7.}\begin{proposition}[第二Bianchi不等式]
+  \begin{align}
+  (\nabla R)(X,Y,Z,W,T)+(\nabla R)(X,Y,W,T,Z)+(\nabla R)(X,Y,T,Z,W)=0
+  \end{align}
+\end{proposition}
+略。这个恒等式的证明很经典的。
+
+\textbf{8.}\begin{theorem}[Schur定理]
+  若$M$是$n$维黎曼流形且$n\geq 3$.设$M$是各向同性的,即$K(p,\sigma)$并不依赖于$\sigma\subset T_pM$.则$M$有着常截面曲率。
+\end{theorem}
+\begin{proof}
+  定义:
+  \begin{align*}
+    R'(W,Z,X,Y)=\la W,X\ra\la Z,Y\ra-\la Z,X\ra\la W,Y\ra
+  \end{align*}
+  如果截面曲率不依赖于该点处平面的选取,则我们有:
+  \begin{align}
+    R=KR'
+  \end{align}
+  对$R$求联络:
+  \begin{align}
+    \nabla_U R=(UK)R'
+  \end{align}
+  根据第二Bianchi恒等式：
+  \begin{align*}
+    0=(UK)(\la W,X\ra\la Z,Y\ra-\la Z,X\ra\la W,Y\ra)+(XK)(\la W,Y\ra\la Z,U\ra-\la Z,Y\ra\la W,U\ra)+\\(YK)(\la W,U\ra\la Z,X\ra-\la Z,U\ra\la W,X\ra)
+  \end{align*}
+  选取固定的$p\in M$和$X$在$p$的值。因为$n\geq 3$，则存在$Y,Z$使得$\langle X,Y\ra=\la Y,Z\ra+\la Z,X\ra=0$且$\la Z,Z\ra=1$.
+
+  把$U$带入为$Z$,则:
+  \begin{align*}
+    \la (XK)Y-(YK)X,W\ra=0
+  \end{align*}
+
+  因而$(XK)Y-(YK)X=0$.从而$XK=0$恒成立,于是$K$是常数。
+\end{proof}
+
+\textbf{9.}
+\begin{proposition}
+  常数曲率$K(p)$可以用公式:
+  \begin{align*}
+    K(p)=\frac{1}{\omega_{n-1}}\int_{S^{n-1}}\mathrm{Ric}_p(x)dS^{n-1}
+  \end{align*}
+  计算。其中$\omega_{n-1}$是$S^{n-1}$的面积,$\dd S^{n-1}$是$S^{n-1}$的体积元。
+\end{proposition}
+\begin{proof}
+  提示已经做完了。
+\end{proof}
+\textbf{10.}
+\begin{proposition}
+  若$M^n$是连通的Einstein流形,则Einstein数是常数。若$M^3$是连通的Einstein流形则$M^3$的截面曲率恒定。
+\end{proposition}
+提示也做完了。第二个命题直接带入正交基$e_1,e_2,e_3$就得到三个方程。
 \end{document}
 
 
