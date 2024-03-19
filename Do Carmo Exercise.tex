@@ -723,6 +723,168 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
   若$M^n$是连通的Einstein流形,则Einstein数是常数。若$M^3$是连通的Einstein流形则$M^3$的截面曲率恒定。
 \end{proposition}
 提示也做完了。第二个命题直接带入正交基$e_1,e_2,e_3$就得到三个方程。
+\newpage
+\section{第五章}
+\begin{proposition}
+  设$M$是黎曼流形且截面曲率是$0$.则任意$p \in M$,映射$\exp_p:B_{\epsilon}(0)\subset T_p M\to B_{\epsilon}(p)$是等距同构。其中$B_{\epsilon}(p)$是在$p$处的正规球。
+\end{proposition}
+\begin{proof}
+  设$w \in T_v(T_p M)$且满足$\|w\|=1$。则Jacobi场:
+  \begin{align}
+    J(t)=d(\exp_p)_{tv}(tw)
+  \end{align}
+  我们需要说明$\|J(t)\|=t$.因为$\|tw\|=t$,从而给出$\exp_p$是一个等距同构。
+
+  计算:
+  \begin{align}
+    \la J,J\ra'(t)=2\la J',J\ra(t),\la J,J'\ra'(t)=\la J',J'\ra+\la J,J''\ra=\la J',J'\ra-\la J,R(\gamma',J(t))\gamma'\ra
+  \end{align}
+  因为截面曲率总是$0$,所以:
+  \begin{align}
+    \la J,J'\ra'(t)=\la J',J'\ra(t)
+  \end{align}
+  对右边的表达式求导:
+  \begin{align}
+    \la J',J'\ra'(t)=2\la J'',J'\ra=-2\la R(\gamma',J)\gamma',J'\ra=0
+  \end{align}
+  从而$\la J',J'\ra(t)=t$,于是$\langle J,J\rangle(t)=t^2$.
+\end{proof}
+\begin{proposition}
+  设$M$是黎曼流形.$\gamma:[0,1] \to M$是测地线,$J$是沿着$\gamma$的Jacobi场。则存在一个参数化的曲面$f(t,s)$,使得$f(t,0)=\gamma(t)$,$t \mapsto f(t,s)$是测地线,且$J(t)=\pa{f}{s}(t,0)$.
+\end{proposition}
+\begin{proof}
+  是Jacobi场的典范构造。
+\end{proof}
+\begin{proposition}
+  设$M$是有非正截面曲率的黎曼流形。则对于任何$p \in M$,对偶locus$C(p)$总是空集。
+\end{proposition}
+\begin{proof}
+  假设存在非平凡的Jacobi场使得$J(0)=J(1)=0$.
+  \begin{align}
+    \frac{d}{dt}\la \frac{D}{dt}J,J\ra=\la J'',J\ra+\la J',J'\ra\geq 0
+  \end{align}
+  根据$J(0)=J(1)=0$,可以得知:
+  \begin{align}
+    \la \frac{D}{dt}J,J\ra=0
+  \end{align}
+  这意味着$\|J\|^2=0$恒成立,矛盾！
+\end{proof}
+\begin{proposition}
+  设$b<0$.$M$有恒负的常曲率$b$.设$\gamma:[0,l]\to M$是正规测地线,$v \in T_{\gamma(l)}M$且$\la v,\gamma'(l)\ra=0,\|v\|=1$.因为$M$的曲率是负数,从而$\gamma(l)$与$\gamma(0)$不共轭。
+
+  则沿着$\gamma$的Jacobi场$J$($J(0)=0,J(l)=v)$为:
+  \begin{align}
+    J(t)=\frac{\sinh(t\sqrt{-b})}{\sinh(l\sqrt{-b})}w(t)
+  \end{align}
+  其中$w(t)$是沿着$\gamma$平行移动的向量场:
+  \begin{align}
+    w(0)=\frac{u_0}{\|u_0\|},u_0=(d\exp_p)^{-1}_{l\gamma'(0)}(v)
+  \end{align}
+\end{proposition}
+\begin{proof}
+  因为$M$是常曲率空间,于是给定初值的Jacobi场有表达式:
+  \begin{align}
+    J_1(t)=\frac{\sinh t\sqrt{-b}}{\sqrt{-b}}w(t)
+  \end{align}
+  其中$J_1(t)$满足$J_1(0)=0,J_1'(0)=\frac{u_0}{\|u_0\|}$.
+
+  我们用指数映射写出$J_1$:
+  \begin{align}
+    J_1(l)=(d\exp_p)_{l\gamma'(0)}(lw(0))
+  \end{align}
+  因为$v$满足：
+  \begin{align}
+    v=d(\exp_p)_{l\gamma'(0)}(u_0)
+  \end{align}
+  从而$v=\dfrac{\|u_0\|}{l}J_1(l)$.因此:
+  \begin{align}
+    J(t)=\frac{\|u_0\|}{l}\frac{\sinh t\sqrt{-b}}{\sqrt{-b}}w(t)
+  \end{align}
+  余下的工作是解算$\|u_0\|$.事实上,$\|v\|=1$。从而:
+  \begin{align}
+    1=\|v\|=\frac{\|u_0\|\sinh l\sqrt{-b}}{l\sqrt{-b}}
+  \end{align}
+  于是:
+  \begin{align}
+   J(t)=\frac{\sinh(t\sqrt{-b})}{\sinh(l\sqrt{-b})}w(t)
+  \end{align}
+\end{proof}
+\begin{proposition}[局部对称空间的Jacobi场]
+  设$\gamma$是$M$中测地线且$M$是局部对称空间。$v$是$\gamma$在起点的切向量。定义线性映射$K_v:T_pM\to T_pM$:
+  \begin{align}
+    K_v(x)=R(v,x)v
+  \end{align}
+
+  则(1)$K_v$是自伴随的。
+  
+  (2)选取$T_pM$的正交基$\{e_i\}$以对角化$K_v$.把$e_i$沿着$\gamma$平行移动,则$K_{\gamma'(t)}(e_i(t))=\lambda_i e_i(t)$恒成立。
+  
+  (3)设$J(t)=\sum x_i(t)e_i(t)$是沿着$\gamma$的Jacobi场。则Jacobi方程等价:
+  \begin{align}
+    \frac{d^2 x_i}{dt^2}+\lambda_i x_i=0
+  \end{align}
+
+  (4)$p$沿着$\gamma$的共轭点($p$是$\gamma$的起点)由$\gamma(\pi k/\sqrt{\lambda_i})$给出。其中$k$是正整数,$\lambda_i$是$K_v$的正特征值。
+\end{proposition}
+\begin{proof}
+  (1)计算:
+  \begin{align}
+    \la R(v,x)v,y\ra=\la R(v,y)v,x\ra
+  \end{align}
+  这是因为$R$的对称性。
+
+  (2)$R(v,e_i)v=\lambda_ie_i$.则$R(\gamma',e_(t)i)\gamma'$是沿着曲线$\gamma$的平行移动的向量场。于是其和$e_j(t)$的内积保持不变。因此$R(\gamma',e_(t)i)\gamma'=\lambda_ie_i(t)$.
+
+  (3)代入Jacobi场即可。
+
+  (4)观察$x_i(t)$.若$\lambda_i$是正数,则$x_i(t)$有周期解。周期为$\pi k/\sqrt{\lambda_i}$.
+\end{proof}
+  \begin{proposition}
+    见书。不再抄写。
+  \end{proposition}
+  \begin{proof}
+    1.极坐标。验证一下$p$处的非退化性即可。
+
+    2.根据坐标变换公式平凡。
+
+    3.沿着测地线$f(\rho,0)$,有:
+    \begin{align}
+      \sqrt{g_{22}}_{\rho\rho}=-K(p)\rho+R(\rho)
+    \end{align}
+    
+    实际上,$\pa{f}{s}$是Jacobi场,于是:
+    \begin{align}
+      \sqrt{g_{22}}=\rho-\frac{1}{6}K(p,\sigma)\rho^3+o(\rho^3)
+    \end{align}
+    求两次导:
+    \begin{align}
+      \sqrt{g_{22}}_{\rho\rho}=-K(p)\rho+R(\rho)
+    \end{align}
+    4.\begin{align}
+      \lim_{\rho \to 0}\frac{\sqrt{g_{22}}_{\rho\rho}}{\sqrt{g_{22}}}=-K(p)
+    \end{align}
+    
+    
+    泰勒展开一除即可得到答案。
+  \end{proof}
+  \begin{proposition}
+    设$M$是$2$维黎曼流形。设$p \in M$且$V\subset T_pM$是原点处的一个邻域。设$S_r(0)$是半径为$r$的圆,且$L_r$是$\exp_p(S_r)$的周长。证明:
+    \begin{align}
+      K(p)=\lim_{r \to 0}\frac{3}{\pi}\frac{2\pi r-L_r}{r^3}
+    \end{align}
+  \end{proposition}
+  \begin{proof}
+    容易求出$L_r$关于$r$展开。
+  \end{proof}
+  \begin{proposition}
+    设$\gamma$测地且$X$是$M$上的killing场。则$X(\gamma(s))$作为$X$在$\gamma(s)$上的限制是一个Jacobi场。
+  \end{proposition}
+  \begin{proof}
+    用$X$给出局部单参数变换群,从而有曲面$f(s,t)$满足$\forall s$,$t \mapsto f(s,t)$是测地线。从而:
+    \begin{align}
+      X''=\frac{D}{dt}\frac{D}{dt}\pa{f}{s}(t,0)=\frac{D}{dt}\frac{D}{ds}\pa{f}{t}(t,0)=\frac{D}{ds}\frac{D}{dt}\pa{f}{t}(t,0)-R(\gamma',X)\gamma'=-R(\gamma',X)\gamma'
+    \end{align}
+  \end{proof}
 \end{document}
 
 
