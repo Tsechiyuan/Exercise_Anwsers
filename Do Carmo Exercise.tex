@@ -885,6 +885,52 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
       X''=\frac{D}{dt}\frac{D}{dt}\pa{f}{s}(t,0)=\frac{D}{dt}\frac{D}{ds}\pa{f}{t}(t,0)=\frac{D}{ds}\frac{D}{dt}\pa{f}{t}(t,0)-R(\gamma',X)\gamma'=-R(\gamma',X)\gamma'
     \end{align}
   \end{proof}
+  \newpage
+  \section{第六章}
+  \begin{proposition}
+    设$M_1$和$M_2$都是黎曼流形。考虑$M_1\times M_2$作为乘积度量。设$\nabla^1$是$M_1$的黎曼联络,$\nabla_2$是$M_2$的黎曼联络。
+
+    1.乘积流形的黎曼联络是原本两个联络的和。
+
+    2.给定$p \in M_1$,集合$(M_2)_p=\{(p,q)|q \in M_2\}$是$M_1 \times M_2$的子流形,自然同构于$M_2$.并且$(M_2)_p$是测地子流形。
+
+    3.设$\sigma$是由$x \in T_p M_1$和$y \in T_qM_2$的在$(p,q)$处生成的二维切空间。则$K(\sigma)=0$
+  \end{proposition}
+  \begin{proof}
+    1.用Koszul公式。注意到乘积流形下李括号,内积均可拆分，从而联络可以拆分。
+
+    2.显然$(M_2)_q$与$M_2$微分同胚。而$(M_2)_q$上的联络总不会计算出$M_2$以外的切向量,因此$M_2$是测地子流形。
+
+    3.$x$延拓为$X$,$y$延拓为$Y$且使得$X,Y$李括号为$0$.容易计算$R(X,Y)X=0$
+    
+  \end{proof}
+  \begin{proposition}
+    设$\mathcal{x}:\R^2 \to \R^4$给出:
+    \begin{align}
+      \mathcal{x}(\theta,\varphi)=(\cos \theta,\sin \theta,\cos \varphi,\sin \varphi)
+    \end{align}
+    是$\R^4$上的环面。该环面的曲率是$0$.
+  \end{proposition}
+  \begin{proof}
+    详细的计算不论。注意到覆叠:$p:\R^4 \to \mathcal{x}$保度量。根据曲率是局部性质,可得$\mathcal{x}$曲率是$0$.
+  \end{proof}
+  \begin{proposition}
+    $K \subset N \subset M$是黎曼流形的浸入。设$N$是$M$的完全测地子流形,$K$是$N$的完全测地子流形,则$K$是$M$的完全测地子流形。
+  \end{proposition}
+  \begin{proof}
+    平凡。
+  \end{proof}
+  \begin{proposition}
+    省略。平凡的命题。
+  \end{proposition}
+  \begin{proposition}
+    黎曼流形$S^2\times S^2$的截面曲率非负。另外，可以给出平坦$T^2$到$S^2 \times S^2$的完全测地嵌入。
+  \end{proposition}
+  \begin{proof}
+    根据命题6.1,我们只需要说明$S^2$的截面曲率非负。事实上,$S^2$是常曲率空间。其截面曲率是$1$.
+
+    第二问用$S^1$嵌入$S^2$,嵌入为赤道即可。
+  \end{proof}
 \end{document}
 
 
