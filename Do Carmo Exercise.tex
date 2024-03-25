@@ -931,6 +931,88 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 
     第二问用$S^1$嵌入$S^2$,嵌入为赤道即可。
   \end{proof}
+  \begin{proposition}
+    设$G$是李群,拥有一个双不变度量。设$H$是李群且$h:H \to G$是浸入,同时也是群同态。($H$是$G$的李子群).则$h$是完全测地的浸入。
+  \end{proposition}
+  \begin{proof}
+    因为$G$拥有双不变度量,根据在第四章的习题可知:
+    \begin{align}
+      \nabla_X Y=\frac{1}{2}[X,Y]
+    \end{align}
+
+    对于$H$,把$G$拉回到$H$上。则该度量在$H$上也是双不变度量。
+
+    对于$X,Y\in T_e H$,可以延伸出$H$的左不变向量场和$G$的左不变向量场。于是$\nabla^G_X Y$和$\nabla^H_X Y$相同。
+  \end{proof}
+  \begin{proposition}
+    若$M$是$\bar{M}$的测地子流形,则对于$M$的任何切向量场,$\nabla$和$\bar{\nabla}$一致。
+  \end{proposition}
+  \begin{proof}
+    完全测地子流形说明$B(X,Y)=0$成立。
+  \end{proof}
+  \begin{proposition}
+    这是一道计算题。我们省略(a)(b)的解答。
+  \end{proposition}
+  \begin{proof}
+    对于(c),我们需要说明这个浸入是极小浸入。使用(b)的结果.$n_2 \in T_pS^3$.而$Tr(S_{n_2})=0$.
+  \end{proof}
+  \begin{proposition}
+    提示做完了。实际上这个题目在说明这样的事情:选定了法向量$\eta$后,第二基本形式就与其他法向量无关了。
+  \end{proposition}
+  \begin{proposition}
+    选定$M$到$\bar{M}$的等距嵌入,并且给定一个$\eta$作为向量场。我们可以给出一个(1,1)张量$S_\eta:TM \to TM$.则对于所有的$V \in \Gamma(M)$,$\nabla_V S_{\eta}$仍然是对称的。
+  \end{proposition}
+  \begin{proof}
+    因为度量的联络是$0$.所以可以考虑张量$S_\eta(X,Y)=\la S_\eta X,Y\ra$.
+
+    按照定义计算即可。或者看书上提示。
+  \end{proof}
+  \begin{proposition}
+    题目见书。
+  \end{proposition}
+  \begin{proof}
+    (a)根据定义计算即可。$\Delta f=\mathrm{div}\mathrm{grad}f$.
+
+    (b)相减，依照联络的无挠性可得结果。
+
+    (c)选取正交基$E_1,\dots,E_n,E_{n+1}=\dfrac{\mathrm{grad}f}{|\mathrm{grad}f|}$.用定义计算平均曲率:
+    \begin{align}
+      nH&=\mathrm{trace}S_{E_{i+1}}=\sum_{i}\la S_{E_{n+1}}(E_i),E_i\ra\\&=\sum_{i}\la B(E_i,E_i),E_{n+1}\ra\\&=\sum_i \la \nabla_{E_i}E_i,E_{n+1}\ra\\&=-\sum_i \la E_i,\nabla_{E_i}E_{n+1}\ra\\&=-\mathrm{div}E_{n+1}
+    \end{align}
+
+    (d)总结性话语。
+  \end{proof}
+  \begin{proposition}[Killing场的奇异点]
+    设$X$是Killing场。$N$是$X$的奇异点集合。
+
+    (a)设$p\in N$,$V$是$p$的正规邻域。证明连接奇异点$p,q$的测地线$\gamma \subset N$.
+
+    (b)若$p \in N$,则存在$p$的邻域$V$使得$V \cap N$是$M$的子流形。
+
+    (c)$N_k$作为$N$连通分支的余维数是偶数。
+  \end{proposition}
+  \begin{proof}
+    回忆Killing方程:
+    \begin{align}
+      \la\nabla_Y X ,Z\ra=-\la \nabla_Z X,Y\ra
+    \end{align}
+    
+    (a)$X$是沿着测地线的Jacobi场。注意到$X$生成的单参数变换群是等距同构,从而$X$生成的$\varphi_t$把$\gamma$映射为$\gamma$。于是在$\gamma$上$X$总是$0$.
+
+    (b)若$p$是孤立点,则命题直接成立。若不然,设$q_1$是一个奇异点。于是连接$p,q_1$的测地线在$N$中。若$\gamma=N \cap V$,则命题成立。若不然,则存在$q_2$使得$q_2$是$X$的零点。设$\gamma_2$是连接$p,q_2$的测地线。
+
+    设$Q$是由$\exp^{-1}(q_1)$和$\exp^{-1}(q_2)$生成的$T_pM$的子空间。设$v'=\exp^{-1}(V)$.$Q$的维数是2维。考虑$N_2=\exp(Q\cap V')$.我们断言$N_2 \subset V\cap N$.
+
+    考虑$X$生成的单参数变换群$X_t:M \to M$.在$Q \subset T_PM$上,$dX_t|_Q=\mathrm{id}$.从而,任取$v \in Q$,有$X_t(\exp_p(sv))=\exp_p(sv)$.(一组基上是恒同。)因此$X$在$N_2$上为$0$.
+
+   这样对维数做归纳即可。
+   
+   (c)设$E_p$是$N_k$在$p$处的法空间,$V$是$p$处的正规坐标。定义$(N_k)^{\perp}=\exp_p(E_p\cap \exp^{-1}V)$。于是我们局部上给出了一个$N_k$的垂直子流形。
+
+   考虑到$N_k$上$X$总为$0$,因此$X_t:M \to M$限制在$N_k$上为$0$,$dX_t|_{T_p N_k}=\mathrm{id}$.作为等距映射,我们有$dX_t(E_p)\subset E_p$.
+
+   因此$X$作为向量场与$(N_k)^{\perp}$相切。另外,在$(N_k)^{\perp}$上$X \neq 0$.从而我们给出了$N_k$上测地球的一个处处不为$0$的向量场。因此这个测地球面维数必须是奇数,而$(N_k)^{\perp}$的维数就必须是偶数。
+    \end{proof}
 \end{document}
 
 
