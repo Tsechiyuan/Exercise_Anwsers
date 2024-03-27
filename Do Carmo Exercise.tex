@@ -1013,6 +1013,112 @@ $X$是killing field当且仅当对于任何向量场$Y,Z$,有:
 
    因此$X$作为向量场与$(N_k)^{\perp}$相切。另外,在$(N_k)^{\perp}$上$X \neq 0$.从而我们给出了$N_k$上测地球的一个处处不为$0$的向量场。因此这个测地球面维数必须是奇数,而$(N_k)^{\perp}$的维数就必须是偶数。
     \end{proof}
+    \newpage
+    \section{第七章:完备黎曼流形与Hopf-Rinow Hadamard定理}
+    备注：本节没有写计算题的答案。
+   \begin{proposition}
+    设$M,N$是黎曼流形,$i: M \subset N$是等距浸入。存在这样的例子:$d_M>d_N$严格成立。
+   \end{proposition}
+   \begin{proof}
+    根据经典的8字形浸入即可构造。
+   \end{proof}
+   \begin{proposition}
+    设$\tilde{M}$是$M$的覆叠空间。显然可以用拉回给出$\tilde{M}$上度量。证明:$\tilde{M}$是完备的当且仅当$M$是完备的。
+   \end{proposition}
+   \begin{proof}
+    拉回度量为:
+    \begin{align}
+      \pi^*g
+    \end{align}
+    因为是局部等距，外加覆叠的曲线提升性质,显然两者的完备性是等价的。
+   \end{proof}
+   \begin{proposition}
+    舍弃掉覆叠空间给出反例。
+   \end{proposition}
+   \begin{proof}
+    $(0,1)$单射到$S^1$上。显然$(0,1)$不是完备的。
+   \end{proof}
+   \begin{proposition}
+    考虑$M \to \R^2-\{(0,0)\}$是泛覆叠映射。给定$M$上的覆叠度量,说明$M$是不可延拓的,但是是不完备的。
+   \end{proposition}
+   \begin{proof}
+      根据命题7.2,$M$是不完备的黎曼流形。若存在$M'$使得:$M \subset M'$且是等距.设$p' \in M'$是$M$边界上的点,设$W' \subset M'$是$p'$的一个凸邻域。
+
+      我们断言$W'-\{p'\}$全部在$M$中。从而$\pi(W'-\{p'\})$是包含$(0,0)$的邻域$U$.考虑$U$中环绕$(0,0)$的圈.显而易见这个圈可以被提升。然而$M$是万有覆叠,这样的提升是做不到的。
+
+      我们现在证明上述断言。因为$p'$是$M$的边界点,于是$W'$中必定含有$M$的点$x$.对于$W'\cap M$的任一点$y$,根据$M$的性质,在$M$上且从$y$出发的测地线中,只有一条使得其不能延申到无穷。在$M'$上考虑$p'$和$x$的测地线$\gamma$.根据$M$是开集,则$\gamma$是从$x$出发的测地线。而$\gamma$不能延申到无穷,因此$\gamma$正是$x$所对应的那条测地线。
+
+      现在$W'$的点(不包含$q'$)分为测地线上的和非测地线上的。如果$y$不在测地线上,则$y$与$x$的测地线($M'$)上不会经过$q'$.因而这条测地线一定在$M$上。若$y$在测地线上,则根据$M$自身测地线的性质可知,$y$也在$M$上。
+
+      所以$W'-\{p\}\subset M$.
+   \end{proof}
+   \begin{proposition}
+    定义发散曲线$\alpha:[0,+\infty) \to M$是在非紧的黎曼流形$M$上的可微曲线,使得对于任何紧集$K \subset M$,都存在$t_0 \in (0,+\infty)$使得$\alpha(t)\notin K$对于所有$t>t_0$都成立。
+
+    定义发散曲线的长度为积分:
+    \begin{align}
+      \lim_{t \to \infty}\int_0^t |\alpha'(t)|dt
+    \end{align}
+
+    则$M$完备等价于任何一条发散曲线的长度都是无界的。
+   \end{proposition}
+   \begin{proof}
+    假设$M$完备,且存在发散曲线$\alpha_0$的长度有界。则$\alpha(0,\infty)$的闭包是$M$中的有界闭集。因而根据Hopf-Rinow定理可知是$M$的紧集。然而$\alpha$并不能超出该紧集,矛盾！因此不存在这样的发散曲线。
+
+    反之,假设任意发散曲线的长度都无界且$M$不完备。设$p \in M$且存在$v$使得$\exp_p(tv)$只在$t < t_0$上有定义。不失一般性,设$|v|=1$。记这条测地线为$\gamma$,则:
+    \begin{align}
+      \tilde{\gamma}(t)=\gamma(t_0-\frac{t_0}{t+1})
+    \end{align}
+    重参数化后$\tilde{\gamma}$长度不变,但是定义域变化。因此$\tilde{\gamma}$不是发散曲线，存在$K$作为紧集使得$\tilde{\gamma}\subset K$.
+
+    在$\gamma$的像上取点列${t_n}$使得$t_n \to t_0$.于是$\gamma(t_n)$是$K$中的点。$K$是紧集,于是$\gamma(t_n)$有聚点$q$.从而可以定义$\gamma(t_0)=q$.这产生了矛盾！因此$M$完备。
+   \end{proof}
+   \begin{proposition}
+    一条测地线$\gamma:[0,\infty)\to M$称为ray射线,若其总是实现$\gamma(0)$和$\gamma(s)$的距离。设$M$是完备,非禁的黎曼流形.则对于任何$p\in M$，都有从$p$出发的ray射线。
+   \end{proposition}
+   \begin{proof}
+    对于$v \in T_p M$,定义映射$S:T_p M\to \R$:
+    \begin{align}
+      S(v)=d(p,\exp_p(v))-|v|
+    \end{align}
+    则$S\geq 0$,且若测地线$\exp_p(tv)$实现距离,则$S(tv)=0$对于任何$0\leq t \leq 1$都成立。
+
+    根据连续性,$S$是连续映射。因此$S^{-1}(0)$是$T_pM$中的闭集，且是Star形的闭集。
+
+    因为$M$非紧完备,所以$M$无界。选取$q_n$使得$d(p,q_n) \to +\infty$。因此存在$w_n \in T_pM$使得$\exp_p(w_n)=q_n$.考虑$w_n/|w_n|\in T_pM$,则有一个聚点$w_0$.我们断言$\exp_p(tw_0)$是一条ray射线。
+
+    我们只用说明$S(tw_0)=0$总是成立的。这等于说任意$N>0$,$S(Nw_0)=0$都成立。然而任意$N>0$,总存在$n>N'$使得$S(Nw_n/|w_n|)=0,n>N'$.根据$S$连续性$S(Nw_0)=0$也成立。
+   \end{proof}
+   \begin{proposition}
+    设$M$和$\bar{M}$是非紧的黎曼流形且$f:M \to\bar{M}$是微分同胚。假定$\bar{M}$是完备的,且存在常数$c$使得:
+    \begin{align}
+      |v|\geq c|(df)_pv|
+    \end{align}
+    则$M$也是完备的。
+   \end{proposition}
+   \begin{proof}
+    用7.5结果。选取一条发散曲线$\gamma \subset M$。由微分同胚可知$f(\gamma)$也是发散曲线。
+   \end{proof}
+   \begin{proposition}
+    见书。
+   \end{proposition}
+   \begin{proof}
+    显然$\bar{M}$上不存在闭测地线。于是若$p,q$不同且$f(p)=f(q)$,则测地线$\gamma$连接$p,q$被$f$全部映射为$f(p)$。这与局部等距矛盾！
+
+    考虑$p,f(p)$。设$\bar{q}\in \bar{M}$和$\bar{\gamma}$是连接$\bar{q}$和$f(q)$的测地线。局部等距说明$(df)_p$是向量空间的同构映射,因而存在$v \in T_p M$使得$(df)_p(v)=\dot{\bar{\gamma}}(0)$.则$f(\exp_p(v))=\bar{q}$.
+   \end{proof}
+   \begin{proposition}
+    设$M$是完备黎曼流形,$X$是$M$的向量场。假设存在$c>0$使得$|X(p)|>c$恒成立,则$X$是完备的向量场。
+   \end{proposition}
+   \begin{proof}
+    错题。反转不等号是显然的。
+   \end{proof}
+   \begin{proposition}
+    称一个黎曼流形是齐次的,若任意$p,q\in M$都有等距同构$f:M \to M$使得$f(p)=q$.试证明任何齐次黎曼流形都是完备的。
+   \end{proposition}
+   \begin{proof}
+    用正规坐标系即可。
+   \end{proof}
 \end{document}
 
 
